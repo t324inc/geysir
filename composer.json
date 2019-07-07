@@ -31,8 +31,7 @@
         "oomphinc/composer-installers-extender": "~1.0",
         "cweagans/composer-patches": "~1.0",
         "drupal/drupal-library-installer-plugin": "^0.3",
-        "t324inc/d324_core": "8.7.x-dev",
-        "t324inc/d324_paragraphs": "8.7.x-dev"
+        "t324inc/d324_core": "8.7.x-dev"
     },
     "extra": {
         "branch-alias": {
