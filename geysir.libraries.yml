@@ -1,5 +1,5 @@
 geysir:
-  version: 1.x
+  version: VERSION
   css:
     theme:
       css/geysir.dialog.css: {}
@@ -9,3 +9,25 @@ geysir:
   dependencies:
     - core/drupal
     - core/jquery
+
+style_scoped:
+  version: 0.1.0
+  js:
+    js/scoped.js: {}
+
+scoped_admin:
+  version: VERSION
+  js:
+    js/scoped_admin.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/drupalSettings
+    - geysir/scoped_seven
+    - geysir/style_scoped
+
+scoped_seven:
+  version: VERSION
+  css:
+    theme:
+      theme/scoped_seven/css/overrides.css: {}

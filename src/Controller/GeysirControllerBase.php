@@ -73,7 +73,7 @@ abstract class GeysirControllerBase extends ControllerBase {
       $parent_field_settings['settings']['title'] :
       $this->t('Paragraph');
 
-    return strtolower($paragraph_title);
+    return $paragraph_title;
   }
 
   /**

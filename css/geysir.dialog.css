@@ -7,7 +7,6 @@
  */
 
 .ui-dialog.geysir-dialog {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     border-radius: 0;
     position: absolute;
     z-index: 1260;
@@ -70,56 +69,183 @@
     padding: 4px;
     width: 24px;
 }
-.ui-dialog.geysir-dialog .ajax-progress-throbber .throbber,
-.ui-dialog.geysir-dialog .ajax-progress-throbber .message {
-    display: none;
-}
-.ui-dialog.geysir-dialog input,
-.ui-dialog.geysir-dialog select,
-.ui-dialog.geysir-dialog textarea {
-    font-size: 0.9em;
-}
-.ui-dialog.geysir-dialog .button {
-    background-color: #fff;
-    background-image: -webkit-linear-gradient(top,#f3f3f3,#e8e8e8);
-    background-image: linear-gradient(to bottom,#f3f3f3,#e8e8e8);
-    border: 1px solid #e4e4e4;
-    border-bottom-color: #b4b4b4;
-    border-left-color: #d2d2d2;
-    border-right-color: #d2d2d2;
-    color: #3a3a3a;
-    cursor: pointer;
-    font-size: 0.929em;
-    font-weight: normal;
-    text-align: center;
-    padding: 0.250em 1.063em;
-    border-radius: 1em;
-}
-.ui-widget-overlay {
-    background: #000;
-    opacity: 0.7;
+
+.geysir-dialog a.tabledrag-handle .handle {
+  box-sizing: content-box;
 }
 
-.geysirmodaladd-select-type-form .geysir-add-type {
-    border: 2px solid #ffffff;
-    display: inline-block;
-    margin-right: 30px;
-    min-width: 100px;
-    padding: 10px;
-    width: 100px;
+.geysir-dialog .draggable a.tabledrag-handle {
+  margin: 1rem 0rem !important;
+  padding: 0 !important;
 }
 
-.geysirmodaladd-select-type-form .geysir-add-type:hover {
-    border: 2px solid rgb(85, 142, 213);
+.geysir-dialog .tabledrag-toggle-weight-wrapper {
+  display: none;
 }
 
-.geysirmodaladd-select-type-form .geysir-add-type input {
-    border: none;
-    padding: 0;
+.geysir-dialog .geysir-scoped-modal th.field-label {background: #f7f7f7;}
+
+.geysir-dialog .text-format-wrapper > .form-item {
+  margin-bottom: 0 !important;
 }
 
-.geysirmodaladd-select-type-form .geysir-add-type span {
-    display: block;
-    text-align: center;
-    width: 100%;
+.geysir-dialog legend {
+  display: inline-block !important;
+  width: auto;
+  padding: 0 10px !important;
+  margin-bottom: -10px;
+}
+
+.geysir-dialog h4 {
+  font-family: inherit;
+}
+
+.geysir-dialog .form-wrapper fieldset {
+  padding: 0 1rem;
+}
+
+.geysir-dialog.ui-dialog .ui-dialog-titlebar {
+  background: #11689b;
+  padding: 10px 15px;
+}
+
+.geysir-dialog.ui-dialog .ui-dialog-buttonset .button {
+  font-size: 18px;
+  font-weight: 600;
+  padding: .5rem 1.5rem;
+}
+
+.geysir-scoped-modal .counter {
+  background: #f7f7f7;
+  border: 2px solid #e2e2e2;
+  border-width: 0 1px;
+  padding: .25em .5em 0;
+  margin: 0 !important;
+}
+
+.geysir-scoped-modal .counter::before {
+  display: none;
+}
+
+.geysir-dialog form .field-multiple-table .field-multiple-drag {
+  padding: 0;
+}
+
+.geysir-dialog .form-wrapper > .form-item:first-child {
+  margin-top: 0 !important;
+}
+
+.geysir-dialog .length-indicator {
+  margin-bottom: 1rem;
+}
+
+.geysir-dialog .card-body {
+  padding: 0;
+  flex: 0;
+  -webit-box-flex: 0;
+}
+
+.geysir-dialog a.tabledrag-handle .handle {
+  box-sizing: content-box;
+}
+
+.geysir-dialog .draggable a.tabledrag-handle {
+  margin: 1rem 0rem !important;
+  padding: 0 !important;
+}
+
+.geysir-dialog .tabledrag-toggle-weight-wrapper {
+  display: none;
+}
+
+.geysir-dialog .geysir-scoped-modal th.field-label {
+  background: #f7f7f7;
+}
+
+.geysir-dialog .text-format-wrapper > .form-item {
+  margin-bottom: 0 !important;
+}
+
+.geysir-dialog legend {
+  display: inline-block !important;
+  width: auto;
+  padding: 0 10px !important;
+  margin-bottom: -10px;
+}
+
+.geysir-dialog h4 {
+  font-family: inherit;
+}
+
+.geysir-dialog .form-wrapper fieldset {
+  padding: 0;
+}
+
+.geysir-dialog.ui-dialog .ui-dialog-titlebar {
+  background: #11689b;
+  padding: 10px 15px;
+}
+
+.geysir-dialog.ui-dialog .ui-dialog-buttonset .button {
+  font-size: 18px;
+  font-weight: 600;
+  padding: .5rem 1.5rem;
+}
+
+.geysir-scoped-modal .media-library-item__attributes {
+  background: none;max-width: 100%;
+}
+
+.geysir-scoped-modal .media-library-selection {
+  margin: 0;
+}
+
+.geysir-scoped-modal .media-library-widget-modal .media-library-item--grid,
+.geysir-scoped-modal .media-library-selection .media-library-item--grid {
+  margin: 2px 15px 15px 2px;
+}
+
+.geysir-scoped-modal .field--type-link .form-item.form-group small {
+  display: none;
+}
+
+.geysir-scoped-modal .field--type-link .field-multiple-table .field-multiple-drag + td {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+
+.geysir-scoped-modal .field--type-link .field-multiple-table .field-multiple-drag + td > * {
+  margin: 1rem 1rem 1rem 0 !important;
+  max-width: 300px;
+  padding-top: 0;
+}
+
+.geysir-dialog .js-media-library-widget-toggle-weight {
+  display: none !important;
+}
+
+.geysir-dialog .card-header {
+  margin: -2rem -1rem 0;
+}
+
+.geysir-dialog .form-submit.js-form-submit.button.btn {
+  margin: 0 1rem 0 0;
+}
+
+.js-color-field-widget-spectrum .form-item {
+  margin: 0 1rem 1rem 0;
+}
+
+.js-color-field-widget-spectrum {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.js-color-field-widget-spectrum .form-item {
+  margin: 0 1rem 1rem 0;
+}
+
+.horizontal-tabs .horizontal-tab-hidden {
+  display: none;
 }

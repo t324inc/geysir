@@ -19,6 +19,17 @@ function geysir_theme() {
       'render element' => 'element',
       'file' => 'geysir.theme.inc',
     ],
+    'geysir_modal_content_wrapper' => [
+      'variables' => [
+        'content' => [],
+        'scoped' => [],
+      ],
+      'file' => 'geysir.theme.inc',
+    ],
+    'geysir_dialog_content_wrapper' => [
+      'render element' => 'elements',
+      'file' => 'geysir.theme.inc',
+    ],
   ];
 }
 
@@ -158,7 +169,9 @@ function geysir_preprocess_field(&$vars) {
         ]),
         'attributes' => [
           'class' => ['use-ajax', 'geysir-button'],
-          'data-dialog-type' => 'modal',
+          'data-dialog-type' => 'dialog',
+          'data-dialog-renderer' => 'off_canvas',
+          'data-dialog-options' => '{"width":"400px"}',
           'title' => t('Add before'),
         ],
       ];
@@ -180,7 +193,9 @@ function geysir_preprocess_field(&$vars) {
         ]),
         'attributes' => [
           'class' => ['use-ajax', 'geysir-button'],
-          'data-dialog-type' => 'modal',
+          'data-dialog-type' => 'dialog',
+          'data-dialog-renderer' => 'off_canvas',
+          'data-dialog-options' => '{"width":"400px"}',
           'title' => t('Add after'),
         ],
       ];
@@ -207,9 +222,7 @@ function geysir_preprocess_field(&$vars) {
       ],
     ];
     if ($translated_parent) {
-      if (
-        $paragraph->isDefaultTranslation()
-      ) {
+      if ($paragraph->isDefaultTranslation()) {
         $links['edit'] = [
           'title' => t('Translate'),
           'url' => Url::fromRoute('geysir.modal.translate_form', [
@@ -328,11 +341,22 @@ function geysir_preprocess_field(&$vars) {
         'attributes' => [
           'data-geysir-field-paragraph-field-wrapper' => $field_wrapper_id,
           'class' => ['use-ajax', 'geysir-button', 'geysir-paste'],
-          'data-dialog-type' => 'modal',
+          'data-dialog-type' => 'dialog',
+          'data-dialog-renderer' => 'off_canvas',
+          'data-dialog-options' => '{"width":"400px"}',
           'title' => t('Paste'),
         ],
       ];
     }
+
+    $context = [
+      'paragraph' => $paragraph,
+      'parent' => $parent,
+      'delta' => $delta,
+      'field_definition' => $field_definition,
+    ];
+
+    \Drupal::moduleHandler()->alter('geysir_paragraph_links', $links, $context);
 
     $links_array = [
       '#theme' => 'links',
@@ -347,8 +371,10 @@ function geysir_preprocess_field(&$vars) {
     ];
 
     $vars['items'][$delta]['content']['#theme_wrappers'][] = 'geysir_field_paragraph_wrapper';
-    $vars['items'][$delta]['content']['#geysir_field_paragraph_links'] = Drupal::service('renderer')
-      ->render($links_array);
+    //$vars['items'][$delta]['content']['#geysir_field_paragraph_links'] = Drupal::service('renderer')
+    //  ->render($links_array);
+
+    $vars['items'][$delta]['content']['#geysir_field_paragraph_links'] = $links_array;
 
     /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
     $paragraph = $vars['items'][$delta]['content']['#paragraph'];
@@ -421,7 +447,7 @@ function geysir_preprocess_node(&$vars) {
 }
 
 /**
- * Get the 'Add first paragrah' link.
+ * Get the 'Add first paragraph' link.
  *
  * @param Node $node
  *  The parent node.

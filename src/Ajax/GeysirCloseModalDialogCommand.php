@@ -17,8 +17,12 @@ class GeysirCloseModalDialogCommand extends CloseDialogCommand {
    * @param bool $persist
    *   (optional) Whether to persist the dialog in the DOM or not.
    */
-  public function __construct($persist = FALSE) {
-    $this->selector = GeysirOpenModalDialogCommand::MODAL_SELECTOR;
+  public function __construct($selector = NULL, $persist = FALSE) {
+    if(empty($selector)) {
+      $this->selector = GeysirOpenModalDialogCommand::MODAL_SELECTOR;
+    } else {
+      $this->selector = $selector;
+    }
     $this->persist = $persist;
   }
 

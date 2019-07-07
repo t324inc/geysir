@@ -4,7 +4,7 @@ namespace Drupal\geysir\Form;
 
 use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\CloseModalDialogCommand;
-use Drupal\Core\Ajax\HtmlCommand;
+use Drupal\Core\Ajax\ReplaceCommand;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\geysir\Ajax\GeysirReattachBehaviors;
 
@@ -32,7 +32,7 @@ class GeysirModalParagraphDeleteForm extends GeysirParagraphDeleteForm {
   public function buildForm(array $form, FormStateInterface $form_state) {
     $form = parent::buildForm($form, $form_state);
 
-    $form['#prefix'] = '<div id="geysir-modal-form">';
+    $form['#prefix'] = '<div id="geysir-modal-form" class="adminimal">';
     $form['#suffix'] = '</div>';
 
     // @TODO: fix problem with form is outdated.
@@ -93,10 +93,9 @@ class GeysirModalParagraphDeleteForm extends GeysirParagraphDeleteForm {
 
     // Refresh the paragraphs field.
     $response->addCommand(
-      new HtmlCommand(
+      new ReplaceCommand(
         '[data-geysir-field-paragraph-field-wrapper=' . $field_wrapper_id . ']',
-        $parent_entity_revision->get($field_name)->view('default')
-      )
+        $parent_entity_revision->get($field_name)->view('default'))
     );
 
     $response->addCommand(new CloseModalDialogCommand());

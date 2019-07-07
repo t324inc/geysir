@@ -22,7 +22,7 @@ class GeysirModalParagraphAddSelectTypeForm extends FormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    $form['#prefix'] = '<div id="geysir-modal-form">';
+    $form['#prefix'] = '<div id="geysir-modal-form" class="adminimal">';
     $form['#suffix'] = '</div>';
 
     $routeParams = $form_state->getBuildInfo()['args'][0];
