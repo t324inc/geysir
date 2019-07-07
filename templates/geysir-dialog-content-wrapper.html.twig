@@ -1,0 +1,23 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a Geysir Dialog Content Wrapper.
+ *
+ * Available variables:
+ * - content: The rendered paragraph form/content and all eventual other children.
+ *   Use {{ content }} to print them all, or print a subset such as
+ *   {{ content.field_example }}. Use {{ content|without('field_example') }}
+ *   to temporarily suppress the printing of a given child element.
+ * - attributes: HTML attributes for the containing element.
+ *   The attributes.class element may contain one or more of the following
+ *   classes:
+ *   - geysir-dialog-content-wrapper: The current template type (also known as a "theming hook").
+ *
+ * @see template_preprocess_geysir_dialog_content_wrapper()
+ *
+ * @ingroup themeable
+ */
+#}
+<div{{ attributes }}>
+  {{ content }}
+</div>

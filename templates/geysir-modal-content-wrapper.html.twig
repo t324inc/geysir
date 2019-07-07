@@ -1,0 +1,29 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a Geysir Modal Content Wrapper.
+ *
+ * Available variables:
+ * - element: The rendered paragraph form/content and all eventual other children.
+ *   Use {{ content }} to print them all, or print a subset such as
+ *   {{ content.field_example }}. Use {{ content|without('field_example') }}
+ *   to temporarily suppress the printing of a given child element.
+ * - attributes: HTML attributes for the containing element.
+ *   The attributes.class element may contain one or more of the following
+ *   classes:
+ *   - geysir-modal-content-wrapper: The current template type (also known as a "theming hook").
+ *
+ * @see template_preprocess_geysir_modal_content_wrapper()
+ *
+ * @ingroup themeable
+ */
+#}
+<script>window.scopedCSS = {applyToClass: true};</script>
+<div{{ attributes }}>
+  <style scoped type="text/css" id="scoped">
+    {% for css in scoped.css %}
+    @import '{{ css }}';
+    {% endfor %}
+  </style>
+  {{ content }}
+</div>

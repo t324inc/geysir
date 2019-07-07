@@ -1,0 +1,16 @@
+{
+  "name": "geysir",
+  "description": "Front-end editing with scoped admin theme",
+  "private": true,
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "scss": "node-sass theme/scoped_seven/scss -o theme/scoped_seven/css --output-style=compressed"
+  },
+  "author": "Brian Nowell",
+  "license": "GPL-2.0-only",
+  "dependencies": {
+    "node-sass": "^4.12.0"
+  },
+  "devDependencies": {}
+}
