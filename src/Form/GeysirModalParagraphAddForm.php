@@ -43,6 +43,14 @@ class GeysirModalParagraphAddForm extends GeysirModalParagraphForm {
       $this->insertFirstItem($parent_entity_revision);
     }
 
+    // Create new revision if we are editing the default revision
+    if(!empty($parent_entity_revision->isDefaultRevision())) {
+      $parent_entity_revision->setNewRevision(TRUE);
+      $type_label = $this->entity->type->entity->label();
+      $field_name = $route_match->getParameter('field');
+      $parent_entity_revision->revision_log = "Added new $type_label paragraph to $field_name via front-end editing.";
+      $parent_entity_revision->setRevisionCreationTime(REQUEST_TIME);
+    }
     $save_status = $parent_entity_revision->save();
 
     // Use the parent revision id if available, otherwise the parent id.

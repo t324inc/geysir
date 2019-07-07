@@ -59,6 +59,15 @@ class GeysirParagraphForm extends ContentEntityForm {
       'target_revision_id' => $this->entity->getRevisionId(),
     ]);
 
+    if(!empty($parent_entity_revision->isDefaultRevision())) {
+      $parent_entity_revision->setNewRevision(TRUE);
+      $type_label = $this->entity->type->entity->label();
+      $field_name = $route_match->getParameter('field');
+      $parent_entity_revision->revision_log = "Updated $type_label paragraph in $field_name via front-end editing.";
+      $parent_entity_revision->setRevisionCreationTime(REQUEST_TIME);
+      // Fix for https://www.drupal.org/project/entity_reference_revisions/issues/3025709
+      $parent_entity_revision->setRevisionTranslationAffected(TRUE);
+    }
     $save_status = $parent_entity_revision->save();
 
     // Use the parent revision id if available, otherwise the parent id.

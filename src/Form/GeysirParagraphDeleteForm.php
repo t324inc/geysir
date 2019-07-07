@@ -49,6 +49,13 @@ class GeysirParagraphDeleteForm extends ContentEntityDeleteForm {
     $parent_entity_revision = $this->getParentRevisionOrParent($parent_entity_type, $parent_entity_revision);
 
     $parent_entity_revision->get($field_name)->removeItem($delta);
+    // Create new revision if we are editing the default revision
+    if(!empty($parent_entity_revision->isDefaultRevision())) {
+      $parent_entity_revision->setNewRevision(TRUE);
+      $type_label = $this->entity->type->entity->label();
+      $parent_entity_revision->revision_log = "Removed $type_label paragraph from $field_name via front-end editing.";
+      $parent_entity_revision->setRevisionCreationTime(REQUEST_TIME);
+    }
     $parent_entity_revision->save();
 
     // Use the parent revision id if available, otherwise the parent id.

@@ -110,7 +110,6 @@ class GeysirModalController extends GeysirControllerBase {
     $form = $this->entityFormBuilder()->getForm($paragraph_revision, 'geysir_modal_edit', []);
     $paragraph_title = $this->getParagraphTitle($parent_entity_type, $parent_entity_bundle, $field);
     $form['#attached']['library'][] = 'geysir/style_scoped';
-    //$form['#attached']['library'][] = 'geysir/scoped_seven';
     $form['#attached']['library'][] = 'geysir/scoped_admin';
     if($js == "ajax") {
       $scopedwrap = [
