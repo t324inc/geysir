@@ -1,0 +1,48 @@
+{
+    "name": "t324inc/geysir",
+    "description": "Provides Blog post content type and related configuration.",
+    "type": "drupal-module",
+    "homepage": "https://github.com/t324inc/geysir",
+    "license": "GPL-2.0-or-later",
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "T324",
+            "homepage": "https://www.t324.com",
+            "role": "Maintainer"
+        }
+    ],
+    "repositories": {
+        "t324": {
+            "type": "composer",
+            "url": "https://t324inc.github.io/satis/"
+        },
+        "drupal": {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        },
+        "assets": {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    },
+    "require": {
+        "composer/installers": "~1.0",
+        "oomphinc/composer-installers-extender": "~1.0",
+        "cweagans/composer-patches": "~1.0",
+        "drupal/drupal-library-installer-plugin": "^0.3",
+        "t324inc/d324_core": "8.7.x-dev",
+        "t324inc/d324_paragraphs": "8.7.x-dev"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-8.x-7.x": "8.7.x-dev"
+        },
+        "installer-types": [
+            "bower-asset",
+            "npm-asset"
+        ],
+        "enable-patching": true,
+        "composer-exit-on-patch-failure": true
+    }
+}
