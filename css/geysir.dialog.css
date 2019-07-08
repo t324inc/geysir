@@ -265,6 +265,10 @@
   height: auto;
 }
 
+.media-library-menu li {
+  display: block;
+}
+
 .media-library-menu.nav {
   display: block;
 }
