@@ -292,3 +292,15 @@
 .media-library-item--grid.is-hover:before, .media-library-item--grid.checked:before, .media-library-item--grid.is-focus:before {
   border: none;
 }
+
+.media-library-add-form .form-item-upload {
+  display: flex;
+}
+
+.media-library-add-form .form-item-upload label {
+  display: none;
+}
+
+.media-library-add-form .form-item-upload small {
+  display: none;
+}
