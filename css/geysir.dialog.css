@@ -94,6 +94,7 @@
   width: auto;
   padding: 0 10px !important;
   margin-bottom: -10px;
+  font-size: 1.25rem;
 }
 
 .geysir-dialog h4 {
@@ -227,6 +228,7 @@
 
 .geysir-dialog .card-header {
   margin: -2rem -1rem 0;
+  padding: .5rem 0;
 }
 
 .geysir-dialog .form-submit.js-form-submit.button.btn {
