@@ -280,3 +280,15 @@
 .media-library-wrapper .media-library-view > nav .pager__item {
   padding: 0;
 }
+
+.media-library-item {
+  margin: 0;
+}
+
+.media-library-item.is-hover, .media-library-item.checked, .media-library-item.is-focus {
+  margin: 0;
+}
+
+.media-library-item--grid.is-hover:before, .media-library-item--grid.checked:before, .media-library-item--grid.is-focus:before {
+  border: none;
+}
