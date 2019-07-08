@@ -60,6 +60,7 @@ class GeysirModalController extends GeysirControllerBase {
 
     if ($bundle) {
       $newParagraph = Paragraph::create(['type' => $bundle]);
+      $paragraph_title .= " - " . $newParagraph->getParagraphType()->label();
       $form = $this->entityFormBuilder()->getForm($newParagraph, 'geysir_modal_add', []);
       if($js == "ajax") {
         $response = new AjaxResponse();
@@ -109,6 +110,7 @@ class GeysirModalController extends GeysirControllerBase {
   public function edit($parent_entity_type, $parent_entity_bundle, $parent_entity_revision, $field, $field_wrapper_id, $delta, $paragraph, $paragraph_revision, $js = 'nojs') {
     $form = $this->entityFormBuilder()->getForm($paragraph_revision, 'geysir_modal_edit', []);
     $paragraph_title = $this->getParagraphTitle($parent_entity_type, $parent_entity_bundle, $field);
+    $paragraph_title .= " - " . $paragraph->getParagraphType()->label();
     $form['#attached']['library'][] = 'geysir/style_scoped';
     $form['#attached']['library'][] = 'geysir/scoped_admin';
     if($js == "ajax") {
@@ -139,6 +141,7 @@ class GeysirModalController extends GeysirControllerBase {
     $translated_paragraph = $paragraph->addTranslation($langcode, $paragraph->toArray());
     $form = $this->entityFormBuilder()->getForm($translated_paragraph, 'geysir_modal_edit', []);
     $paragraph_title = $this->getParagraphTitle($parent_entity_type, $parent_entity_bundle, $field);
+    $paragraph_title .= " - " . $paragraph->getParagraphType()->label();
     if($js == "ajax") {
       $response = new AjaxResponse();
       $response->addCommand(new GeysirCloseModalDialogCommand('#drupal-off-canvas'));
@@ -163,7 +166,8 @@ class GeysirModalController extends GeysirControllerBase {
       $form = $this->entityFormBuilder()->getForm($paragraph, 'geysir_modal_delete', []);
 
       $response = new AjaxResponse();
-      $paragraph_title = $this->getParagraphTitle($parent_entity_type, $parent_entity_bundle, $field);
+      //$paragraph_title = $this->getParagraphTitle($parent_entity_type, $parent_entity_bundle, $field);
+      $paragraph_title = $paragraph->getParagraphType()->label();
       $response->addCommand(new GeysirCloseModalDialogCommand('#drupal-off-canvas'));
       $response->addCommand(new OpenModalDialogCommand($this->t('Delete @paragraph_title', ['@paragraph_title' => $paragraph_title]), render($form), $options));
       return $response;
