@@ -9,6 +9,7 @@ use Drupal\Core\Ajax\ReplaceCommand;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\geysir\Ajax\GeysirCloseModalDialogCommand;
 use Drupal\geysir\Ajax\GeysirReattachBehaviors;
+use Drupal\geysir\Ajax\GeysirScrollToParagraph;
 
 /**
  * Functionality to edit a paragraph through a modal.
@@ -75,6 +76,7 @@ class GeysirModalParagraphForm extends GeysirParagraphForm {
       // Get all necessary data to be able to correctly update the correct
       // field on the parent node.
       $route_match = $this->getRouteMatch();
+      $paragraph = $route_match->getParameter('paragraph');
       $parent_entity_type = $route_match->getParameter('parent_entity_type');
       $temporary_data = $form_state->getTemporary();
       $parent_entity_revision = isset($temporary_data['parent_entity_revision']) ?
@@ -104,6 +106,8 @@ class GeysirModalParagraphForm extends GeysirParagraphForm {
       $response->addCommand(new GeysirCloseModalDialogCommand());
 
       $response->addCommand(new GeysirReattachBehaviors());
+
+      $response->addCommand(new GeysirScrollToParagraph($paragraph->id()));
     }
 
     return $response;

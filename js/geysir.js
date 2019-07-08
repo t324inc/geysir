@@ -62,4 +62,9 @@
     Drupal.blazy.init.revalidate();
   };
 
+  Drupal.AjaxCommands.prototype.geysirScrollToParagraph = function (ajax, response, status) {
+    var paragraph_id = response.paragraph_id;
+    $(document).scrollTop($('div[data-geysir-paragraph-id="' + paragraph_id + '"]').first().offset().top - 100);
+  };
+
 })(jQuery, Drupal, drupalSettings);

@@ -7,6 +7,7 @@ use Drupal\Core\Ajax\CloseModalDialogCommand;
 use Drupal\Core\Ajax\ReplaceCommand;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\geysir\Ajax\GeysirReattachBehaviors;
+use Drupal\geysir\Ajax\GeysirScrollToParagraph;
 
 /**
  * Functionality to delete a paragraph through a modal.
@@ -90,6 +91,7 @@ class GeysirModalParagraphDeleteForm extends GeysirParagraphDeleteForm {
 
     // Get the parent revision if available, otherwise the parent.
     $parent_entity_revision = $this->getParentRevisionOrParent($parent_entity_type, $parent_entity_revision);
+
 
     // Refresh the paragraphs field.
     $response->addCommand(
