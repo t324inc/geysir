@@ -264,3 +264,15 @@
 .geysir-scoped-modal .field--type-link .field-multiple-table .field-multiple-drag + td > .form-wrapper.card[open] {
   height: auto;
 }
+
+.media-library-menu.nav {
+  display: block;
+}
+
+.media-library-wrapper .media-library-view > nav {
+  order: 4;
+}
+
+.media-library-wrapper .media-library-view > nav .pager__item {
+  padding: 0;
+}
