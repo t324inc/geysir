@@ -118,6 +118,7 @@ class GeysirModalController extends GeysirControllerBase {
         '#scoped' => $this->attachScopedStyles(),
       ];
       $response = new AjaxResponse();
+      $response->addCommand(new GeysirCloseModalDialogCommand('#drupal-off-canvas'));
       $response->addCommand(new GeysirOpenModalDialogCommand($this->t('Editing @paragraph_title', ['@paragraph_title' => $paragraph_title]), $scopedwrap));
       return $response;
     } else {
@@ -140,6 +141,7 @@ class GeysirModalController extends GeysirControllerBase {
     $paragraph_title = $this->getParagraphTitle($parent_entity_type, $parent_entity_bundle, $field);
     if($js == "ajax") {
       $response = new AjaxResponse();
+      $response->addCommand(new GeysirCloseModalDialogCommand('#drupal-off-canvas'));
       $response->addCommand(new GeysirOpenModalDialogCommand($this->t('Translating @paragraph_title', ['@paragraph_title' => $paragraph_title]), render($form)));
       return $response;
     } else {
@@ -162,6 +164,7 @@ class GeysirModalController extends GeysirControllerBase {
 
       $response = new AjaxResponse();
       $paragraph_title = $this->getParagraphTitle($parent_entity_type, $parent_entity_bundle, $field);
+      $response->addCommand(new GeysirCloseModalDialogCommand('#drupal-off-canvas'));
       $response->addCommand(new OpenModalDialogCommand($this->t('Delete @paragraph_title', ['@paragraph_title' => $paragraph_title]), render($form), $options));
       return $response;
     }
@@ -190,6 +193,7 @@ class GeysirModalController extends GeysirControllerBase {
         '/modules/contrib/paragraphs/css/paragraphs.actions.css',
         '/themes/contrib/adminimal_theme/css/adminimal.css',
         '/themes/d324/d324theme_admin/css/d324theme-admin.theme.style.css',
+        '/modules/d324/geysir/css/geysir.dialog.css',
       ],
     ];
   }

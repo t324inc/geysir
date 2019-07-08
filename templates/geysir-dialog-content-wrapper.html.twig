@@ -18,6 +18,12 @@
  * @ingroup themeable
  */
 #}
+<script>window.scopedCSS = {applyToClass: true};</script>
 <div{{ attributes }}>
+  <style scoped type="text/css" id="scoped">
+    {% for css in scoped.css %}
+    @import '{{ css }}';
+    {% endfor %}
+  </style>
   {{ content }}
 </div>

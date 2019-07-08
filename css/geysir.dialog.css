@@ -234,18 +234,31 @@
 }
 
 .js-color-field-widget-spectrum .form-item {
-  margin: 0 1rem 1rem 0;
+  margin: 0 .5rem;
 }
 
 .js-color-field-widget-spectrum {
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 1rem;
 }
 
-.js-color-field-widget-spectrum .form-item {
-  margin: 0 1rem 1rem 0;
+.js-color-field-widget-spectrum .form-item input {
+  height: 30px;
 }
 
 .horizontal-tabs .horizontal-tab-hidden {
   display: none;
+}
+
+.geysir-scoped-modal .field--type-link .field-multiple-table .field-multiple-drag + td > .form-wrapper.card {
+  border: none;
+  display: block;
+  background: none;
+  margin-left: 1rem !important;
+  flex-grow: 1;
+}
+
+.geysir-scoped-modal .field--type-link .field-multiple-table .field-multiple-drag + td > .form-wrapper.card[open] {
+  height: auto;
 }
