@@ -59,6 +59,7 @@
     });
 
     Drupal.attachBehaviors();
+    Drupal.blazy.init.revalidate();
   };
 
 })(jQuery, Drupal, drupalSettings);
