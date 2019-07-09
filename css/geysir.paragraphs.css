@@ -1,9 +1,3 @@
-*[data-geysir-field-paragraph-field-wrapper] .field--item,
-.geysir-field-paragraph-wrapper > * {
-  margin-bottom: 0 !important;
-  margin-top: 0 !important;
-}
-
 .geysir-field-paragraph-wrapper {
   position: relative;
   clear: both;
